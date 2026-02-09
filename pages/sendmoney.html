@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Wallet - Enviar dinero</title>
+  </head>
+
+  <body>
+    <div class="container app-container d-flex flex-column">
+      <h2>Enviar dinero</h2>
+      <div class="container-search">
+        <label for="searchContact" class="text-muted"
+          >Buscar en la agenda:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="searchContact"
+          placeholder="Ej: Ana, anita, 12345678-9, Banco..."
+        />
+      </div>
+
+      <h3>Contactos</h3>
+      <ul id="contactList" class="list-group mb-4"></ul>
+      <template id="contactTemplate">
+        <li class="list-group-item d-flex justify-content-between">
+          <div>
+            <strong class="contact-name"></strong>
+            (<span class="contact-alias"></span>)<br />
+            <small class="contact-info"></small>
+          </div>
+
+          <button class="btn btn-sm btn-outline-primary select-btn">
+            Seleccionar
+          </button>
+        </li>
+      </template>
+
+      <button
+        type="button"
+        class="btn-form btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAddContact"
+      >
+        ✎ Agregar nuevo contacto
+      </button>
+
+      <form id="sendmoney-form" class="sendmoney-form">
+        <h4>Transferencia</h4>
+
+        <div class="container-contact">
+          <label for="selectedContact" class="form-label"
+            >Contacto seleccionado:</label
+          >
+          <input
+            type="text"
+            class="form-input"
+            id="selectedContact"
+            placeholder="Selecciona un contacto desde la lista..."
+            readonly
+          />
+          <input type="hidden" id="selectedContactId" />
+        </div>
+
+        <div class="container-contact">
+          <label for="amount" class="form-label">Monto a enviar:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            min="1"
+            placeholder="Ej: 15000"
+            required
+          />
+        </div>
+
+        <div class="container-contact">
+          <label for="message" class="form-label">Mensaje (opcional):</label>
+          <input
+            type="text"
+            class="form-control"
+            id="message"
+            placeholder="Ej: pago comida"
+          />
+        </div>
+
+        <p id="formError" class="text-danger" style="display: none"></p>
+        <p id="formSuccess" class="text-success" style="display: none"></p>
+
+        <button type="submit" class="btn btn-success">Enviar dinero</button>
+      </form>
+      <button id="btn-back" class="btn-back btn-secondary">
+        ⤺ Volver al Menú
+      </button>
+    </div>
+
+    <!-- Modal Agregar Contacto -->
+    <div
+      class="modal fade"
+      id="modalAddContact"
+      tabindex="-1"
+      aria-labelledby="modalAddContactLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAddContactLabel">
+              Agregar contacto
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre completo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Ej: Ana Pérez"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="rut" class="form-label">RUT:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="rut"
+                placeholder="Ej: 12345678-9"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="alias" class="form-label">Alias:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="alias"
+                placeholder="Ej: anita"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="bank" class="form-label">Banco:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="bank"
+                placeholder="Ej: Banco Nacional"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="save-contact">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/sendmoney.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

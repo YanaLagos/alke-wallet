@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Wallet - Depositar</title>
+  </head>
+
+  <body>
+    <div class="container app-container d-flex flex-column">
+      <h2>Depositar</h2>
+      <form id="deposit-form" class="deposit-form">
+        <div class="form-group">
+          <label for="depositAmount" class="form-label"
+            >Monto a depositar:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="depositAmount"
+            placeholder="Ingrese monto"
+          />
+        </div>
+        <p id="formError" class="text-danger" style="display: none"></p>
+        <p id="formSuccess" class="text-success" style="display: none"></p>
+        <button type="submit" class="btn-form btn-primary">
+          Realizar depósito
+        </button>
+      </form>
+
+      <button id="btn-back" class="btn-back btn-secondary">
+        ⤺ Volver al Menú
+      </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/deposit.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
