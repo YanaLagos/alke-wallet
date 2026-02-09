@@ -151,18 +151,49 @@ body.home .app-container {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.card-container {
+  min-height: auto !important;
+  display: block !important;
+}
+
 .container-amount {
   padding: 10px;
+  padding-left: 30px;
   margin: 10px;
   max-width: 400px;
   width: 100%;
-  background: #fff;
+  color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-top: 6px solid #2364cc;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    url("../assets/curves.png"),
+    linear-gradient(135deg, #78aafa, #45e4fc, #95fb93);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+}
+
+.card-amount {
+  margin-top: 5px !important;
+  font-size: 30px;
+}
+
+.label-card {
+  padding-top: 50px;
+  color: #fff;
+}
+
+.card-data {
+  gap: 20px;
 }
 
 .btn-menu {
@@ -231,3 +262,5 @@ body.home .app-container {
   max-width: 400px;
   width: 100%;
 }
+
+/* =========== TRANSACTIONS =========== */
